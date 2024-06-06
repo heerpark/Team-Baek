@@ -80,27 +80,28 @@ def main():
     st.write("")
 
     # 댓글
-    tab1, tab2, tab3 = st.tabs(["1~10", "10~20", "20~30"])
+    tab1, tab2, tab3 = st.tabs(["1~5", "5~10", "10~15"])
 
     with tab1:
-        for i in range(0, 5):
-            text = f"댓글{i}"
-            message(text)
+        for i in range(0, 3):
+            message("naver" + str(i))
+            message("kakao" + str(i), is_user=True)
 
     with tab2:
-        for i in range(5, 10):
-            text = f"댓글{i}"
-            message(text)
+        for i in range(3, 6):
+            message("naver" + str(i))
+            message("kakao" + str(i), is_user=True)
 
     with tab3:
-        for i in range(10, 15):
-            text = f"댓글{i}"
-            message(text)
+        for i in range(6, 9):
+            message("naver" + str(i))
+            message("kakao" + str(i), is_user=True)
 
     st.divider()
 
     # 음식집 평가
     st_text_rater(text=f"{restaurant_name}를 평가해주세요")
+
 
 if __name__ == "__main__":
     main()
