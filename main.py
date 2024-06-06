@@ -9,9 +9,9 @@ def read_data(file):
     raw = pd.read_csv(file)
     return raw
 
-rating = read_data('./naver_and_kakao_star.csv')
-kakao_map_review = read_data('./kakao_restaurant_5.csv')
-naver_map_review = read_data('./naver_restaurant_5.csv')
+rating = read_data('data/naver_and_kakao_star.csv')
+kakao_map_review = read_data('data/kakao_restaurant_5.csv')
+naver_map_review = read_data('data/naver_restaurant_5.csv')
 kakao_map_review=kakao_map_review.reset_index()
 naver_map_review=naver_map_review.reset_index()
 
