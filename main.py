@@ -40,9 +40,18 @@ def sidebar_filters():
 
         if len(filtered_df) > 0:
             restaurant_list = filtered_df['음식점'].tolist()
-            selected_restaurant = st.selectbox("필터링된 음식점 중 보고싶은 가게를 선택하세요", restaurant_list, index=None, placeholder="음식점",)
-            st.session_state.selected_restaurant = selected_restaurant
-            st.write(f"선택한 음식점: {st.session_state.selected_restaurant}")
+            # 음식점 이름 옆에 평점 추가
+            display_list = [f"{restaurant} \n (🟢: {naver}점, 🟡: {kakao}점)" for restaurant, naver, kakao in zip(filtered_df['음식점'], filtered_df['네이버 평점'], filtered_df['카카오 평점'])]   
+            st.write("필터링된 음식점 중 보고싶은 가게를 선택하세요")
+            selected_display = st.selectbox("🟢: 네이버 평점, 🟡: 카카오 평점", display_list, index=None, placeholder="음식점")
+
+            # 선택된 display_list 항목에서 음식점 이름만 추출
+            if selected_display:
+                selected_restaurant_index = display_list.index(selected_display)
+                selected_restaurant = restaurant_list[selected_restaurant_index]
+                
+                st.session_state.selected_restaurant = selected_restaurant
+                st.write(f"선택한 음식점: {st.session_state.selected_restaurant}")
         else:
             st.write("조건에 맞는 음식점이 없습니다.")
     else:
@@ -122,6 +131,13 @@ def main():
 
         # 페이지 제목
         st.title("🍽️ "+restaurant_name)
+
+        ifno = st.columns(4)
+        with ifno[0]:
+            # st.markdown("<p style='text-align:center'>" + f"📍 네이버 평점: {rating[rating['음식점'] == restaurant_name]['네이버 평점'].values[0]} " + "</p>", unsafe_allow_html=True)
+            st.markdown("<p style='font-weight: bold'>" + f"🟢 네이버 평점: {rating[rating['음식점'] == restaurant_name]['네이버 평점'].values[0]} " + "</p>", unsafe_allow_html=True)
+        with ifno[1]:
+            st.markdown("<p style='font-weight: bold'>" + f"🟡 카카오 평점: {rating[rating['음식점'] == restaurant_name]['카카오 평점'].values[0]}" + "</p>", unsafe_allow_html=True)
         st.write("")
 
         path='img/'+restaurant_name 
