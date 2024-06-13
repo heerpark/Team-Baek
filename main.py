@@ -134,7 +134,6 @@ def main():
 
         ifno = st.columns(4)
         with ifno[0]:
-            # st.markdown("<p style='text-align:center'>" + f"📍 네이버 평점: {rating[rating['음식점'] == restaurant_name]['네이버 평점'].values[0]} " + "</p>", unsafe_allow_html=True)
             st.markdown("<p style='font-weight: bold'>" + f"🟢 네이버 평점: {rating[rating['음식점'] == restaurant_name]['네이버 평점'].values[0]} " + "</p>", unsafe_allow_html=True)
         with ifno[1]:
             st.markdown("<p style='font-weight: bold'>" + f"🟡 카카오 평점: {rating[rating['음식점'] == restaurant_name]['카카오 평점'].values[0]}" + "</p>", unsafe_allow_html=True)
@@ -170,17 +169,17 @@ def main():
             with tabs[1]:
                 show_sentimental_score(restaurant_name, '서비스')
                 container = st.container(border=True, height=200)
-                container.write(f"🤖인공지능이 요약한 맛에 대한 리뷰에요🤖\n\n {get_summary(restaurant_name, '서비스')}")
+                container.write(f"🤖인공지능이 요약한 서비스에 대한 리뷰에요🤖\n\n {get_summary(restaurant_name, '서비스')}")
 
             with tabs[2]:
                 show_sentimental_score(restaurant_name, '가격')
                 container = st.container(border=True, height=200)
-                container.write(f"🤖인공지능이 요약한 맛에 대한 리뷰에요🤖\n\n {get_summary(restaurant_name, '가격')}")
+                container.write(f"🤖인공지능이 요약한 가격에 대한 리뷰에요🤖\n\n {get_summary(restaurant_name, '가격')}")
 
             with tabs[3]:
                 show_sentimental_score(restaurant_name, '분위기')
                 container = st.container(border=True, height=200)
-                container.write(f"🤖인공지능이 요약한 맛에 대한 리뷰에요🤖\n\n {get_summary(restaurant_name, '분위기')}")
+                container.write(f"🤖인공지능이 요약한 분위기에 대한 리뷰에요🤖\n\n {get_summary(restaurant_name, '분위기')}")
             st.write("")
 
             kakao = kakao_map_review[kakao_map_review['음식점'] == restaurant_name].reset_index()
