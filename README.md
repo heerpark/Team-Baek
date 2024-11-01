@@ -1,7 +1,7 @@
 # 2024-1 Text-mining 팀플, 이거 함 먹어봐유
 <b>맛집 찾기 어려우시죠??</b><br><br>
 "이거 함 먹어봐유"와 함께라면 어렵지 않습니다. <br><br>
-"이거 함 먹어봐유"는 TextMining을 활용하여 네이버, 카카오 리뷰 정보들을 한눈에 알기 쉽게 제공합니다.<br>
+"이거 함 먹어봐유"는 TextMining 기술을 활용하여 네이버, 카카오 리뷰 정보들을 한눈에 알기 쉽게 제공합니다.<br>
 
 
 https://github.com/user-attachments/assets/cbf5ce46-0614-424f-a1e4-2752f1dce303
